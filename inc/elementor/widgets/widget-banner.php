@@ -35,7 +35,7 @@ class sassbeyond_Widget_Banner extends Widget_Base {
       $this->add_control(
       'banner_image',
         [
-          'label' => __( 'Choose banner image', 'sassbeyond' ),
+          'label' => __( 'Banner image', 'sassbeyond' ),
           'type' => \Elementor\Controls_Manager::MEDIA,
           'default' => [
             'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -48,7 +48,7 @@ class sassbeyond_Widget_Banner extends Widget_Base {
          [
             'label' => __( 'Title', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Creative business agency make big deals','sassbeyond')
+            'default' => __('Get the Apps & Enjoy!','sassbeyond')
          ]
       );
 
@@ -57,22 +57,20 @@ class sassbeyond_Widget_Banner extends Widget_Base {
          [
             'label' => __( 'Description', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Lorem ipsum dummy text are usually use. Replace your text bare usuallly use in these section. So i used here. replace your text','sassbeyond')
+            'default' => __('Lorem ipxumd dummy text are used in this industry. So replace your orginal text. Lorem dummy','sassbeyond')
          ]
       );
-      
 
-      $button = new \Elementor\Repeater();
 
-      $button->add_control(
+      $this->add_control(
          'btn_text', [
             'label' => __( 'Text', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Learn More','sassbeyond')
+            'default' => __('DOWNLOAD','sassbeyond')
          ]
       );
 
-      $button->add_control(
+      $this->add_control(
          'btn_url', [
             'label' => __( 'URL', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
@@ -81,25 +79,16 @@ class sassbeyond_Widget_Banner extends Widget_Base {
       );
 
       $this->add_control(
-         'button_list',
-         [
-            'label' => __( 'Buttons', 'sassbeyond' ),
-            'type' => \Elementor\Controls_Manager::REPEATER,
-            'fields' => $button->get_controls(),
-            'default' => [
-               [
-                  'btn_text' => 'Contact Us',
-                  'btn_url' => '#',                  
-               ],
-               [
-                  'btn_text' => 'Learn more ',
-                  'btn_url' => '#',
-               ]
-            ],
-            'feature' => '{{{ button_list }}}',
-         ]
+      'app_mockup',
+        [
+          'label' => __( 'App Mockup', 'sassbeyond' ),
+          'type' => \Elementor\Controls_Manager::MEDIA,
+          'default' => [
+            'url' => \Elementor\Utils::get_placeholder_image_src(),
+          ],
+        ]
       );
-      
+
       $this->end_controls_section();
 
    }
@@ -110,39 +99,27 @@ class sassbeyond_Widget_Banner extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-      <section style="background-image: url(<?php echo $settings['banner_image'][url] ?>);" class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 d-none d-xl-block">
-                    <div class="banner-content">
-                      <h1><?php echo esc_html($settings['title']); ?></h1>
-                      <p><?php echo esc_html($settings['description']); ?></p>
-                      <div class="bnr-btn">
-                        <ul class="list-inline">
-                          <?php foreach (  $settings['button_list'] as $key => $button_item ) { ?>
-                             <li class="list-inline-item"><a href="<?php echo esc_url( $button_item['btn_url'] ); ?>"><?php echo esc_attr( $button_item['btn_text'] ); ?></a></li>
-                           <?php } ?>
-                        </ul>
+      <!-- banner-area -->
+      <section class="banner-area banner-bg d-flex align-items-center p-relative" data-background="<?php echo $settings['banner_image'][url] ?>">
+          <div id="particles-js"></div>
+          <div class="container">
+              <div class="row align-items-center justify-content-between">
+                  <div class="col-lg-6">
+                      <div class="banner-content">
+                          <h2 class="wow fadeInUp" data-wow-delay="0.2s"><?php echo esc_html($settings['title']); ?></h2>
+                          <p class="wow fadeInUp" data-wow-delay="0.4s"><?php echo esc_html($settings['description']); ?></p>
+                          <a href="<?php echo esc_url($settings['btn_url']); ?>" class="banner-btn wow fadeInUp" data-wow-delay="0.6s"><?php echo esc_html($settings['btn_text']); ?> <i class="arrow_down"></i></a>
                       </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 d-block d-lg-block d-sm-block d-xl-none">
-                    <div class="banner-content">
-                      <h1><?php echo esc_html($settings['title']); ?></h1>
-                      <p><?php echo esc_html($settings['description']); ?></p>
-                      <div class="bnr-btn">
-                        <ul class="list-inline">
-                          <?php foreach (  $settings['button_list'] as $key => $button_item ) { ?>
-                             <li class="list-inline-item"><a href="<?php echo esc_url( $button_item['btn_url'] ); ?>"><?php echo esc_attr( $button_item['btn_text'] ); ?></a></li>
-                           <?php } ?>
-                        </ul>
+                  </div>
+                  <div class="col-xl-5 col-lg-6 d-none d-lg-block">
+                      <div class="banner-app wow fadeInRight" data-wow-delay="0.4s">
+                          <img src="<?php echo $settings['app_mockup'][url] ?>" alt="img">
                       </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                  </div>
+              </div>
+          </div>
       </section>
-
+      <!-- banner-area-end -->
       <?php
    }
  
