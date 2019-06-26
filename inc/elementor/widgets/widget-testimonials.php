@@ -31,6 +31,16 @@ class sassbeyond_Widget_Testimonials extends Widget_Base {
             'type' => Controls_Manager::SECTION,
          ]
       );
+      
+      $this->add_control(
+         'title',
+         [
+            'label' => __( 'Title', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __( 'Users love us', 'sassbeyond' )
+            
+         ]
+      );
 
       $repeater = new \Elementor\Repeater();
 
@@ -76,7 +86,7 @@ class sassbeyond_Widget_Testimonials extends Widget_Base {
             'label' => __( 'Testimonial List', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
-            'title_field' => 'testimonial_list',
+            'title_field' => '{{name}}',
 
          ]
       );
@@ -98,24 +108,42 @@ class sassbeyond_Widget_Testimonials extends Widget_Base {
       
       ?>
       
-      <div class="testimonials">
-         <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
-         <div class="testimonial-item">
-            <img class="testi-quote" src="<?php echo get_template_directory_uri() ?>/img/quote.png" alt="img">
-            <p><?php echo esc_html($testimonial_single['testimonial']); ?></p>
-            <div class="row">
-               <div class="col-sm-2">
-                  <img src="<?php echo esc_url($testimonial_single['image']['url']); ?>" alt="Logo">
-               </div>
-               <div class="col-sm-5">
-                  <h5><?php echo esc_html($testimonial_single['name']); ?></h5>
-                  <span><?php echo esc_html($testimonial_single['designation']); ?></span>
-               </div>
-            </div>
-         </div>
-         <?php endforeach; ?>
-      </div>
-
+      <!-- testimonial-area -->
+      <section class="testimonial-area">
+          <div class="container">
+              <div class="row justify-content-between">
+                  <div class="col-xl-3 col-lg-4 d-none d-md-block">
+                      <div class="testimonial-quote">
+                          <img src="<?php echo get_template_directory_uri() ?>/img/images/quote_icon.png" alt="quote">
+                      </div>
+                  </div>
+                  <div class="col-xl-8 col-lg-8">
+                      <div class="section-title mb-80">
+                          <h2><?php echo esc_html( $settings['title'] ); ?></h2>
+                      </div>
+                      <div class="testimonial-active">
+                           <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
+                           <div class="single-testimonial">
+                              <div class="testi-content">
+                                  <p><?php echo esc_html($testimonial_single['testimonial']); ?></p>
+                              </div>
+                              <div class="testi-avatar">
+                                  <div class="t-avatar-img">
+                                      <img src="<?php echo esc_url($testimonial_single['image']['url']); ?>" alt="img">
+                                  </div>
+                                  <div class="t-avatar-info">
+                                      <h5><?php echo esc_html($testimonial_single['name']); ?></h5>
+                                      <p><?php echo esc_html($testimonial_single['designation']); ?></p>
+                                  </div>
+                              </div>
+                           </div>
+                           <?php endforeach; ?>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- testimonial-area-end -->
    <?php } 
  
 }
