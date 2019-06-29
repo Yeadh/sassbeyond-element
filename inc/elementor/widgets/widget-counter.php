@@ -48,7 +48,16 @@ class sassbeyond_Widget_Counter extends Widget_Base {
          [
             'label' => __( 'Counter Value', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '445'
+            'default' => '123'
+         ]
+      );
+
+      $this->add_control(
+         'in_word',
+         [
+            'label' => __( 'In Word', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __('M','sassbeyond' )
          ]
       );
 
@@ -57,7 +66,7 @@ class sassbeyond_Widget_Counter extends Widget_Base {
          [
             'label' => __( 'Title', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Projects done','sassbeyond' )
+            'default' => __('Download','sassbeyond' )
          ]
       );
       
@@ -77,14 +86,16 @@ class sassbeyond_Widget_Counter extends Widget_Base {
       
       ?>
 
-      <div class="counter-item">
-         <div class="counter-icon">
-            <img src="<?php echo esc_url($settings['icon']['url']); ?>" alt="Logo">
-         </div>
-         <span class="counter"><?php echo $settings['counter']; ?></span>
-         <p><?php echo $settings['title']; ?></p>
+      <div class="single-count text-center mb-40">
+        <div class="counter">
+         <span class="count"><?php echo esc_html( $settings['counter'] ); ?></span>
+         <?php if ($settings['in_word']): ?>
+           <span><?php echo esc_html( $settings['in_word'] ); ?></span>
+         <?php endif ?></div>
+        <p><?php echo esc_html( $settings['title'] ); ?></p>
+                
       </div>
-      
+
       <?php
    }
  
