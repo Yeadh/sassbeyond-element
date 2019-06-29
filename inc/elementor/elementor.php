@@ -55,6 +55,7 @@ class sassbeyond_ElementorCustomElement {
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-features.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-portfolio.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-list.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-newsletter.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-testimonials.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-team.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-blog.php');
