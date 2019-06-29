@@ -49,6 +49,14 @@ class sassbeyond_Widget_newsletter extends Widget_Base {
       );
 
       $this->add_control(
+         'shortcode', [
+            'label' => __( 'Mailchimp Shortcode', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'placeholder' => __( '[mc4wp_form id="123"]', 'sassbeyond' ),
+         ]
+      );
+
+      $this->add_control(
          'background', [
             'label' => __( 'Floating Image', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::MEDIA,
@@ -81,12 +89,7 @@ class sassbeyond_Widget_newsletter extends Widget_Base {
               </div>
               <div class="row justify-content-center">
                   <div class="col-xl-8 col-lg-10">
-                      <div class="newsletter-form">
-                          <form action="#">
-                              <input type="email" placeholder="Enter your email">
-                              <button><?php echo esc_html__( 'SUBSCRIBE', 'sassbeyond' ); ?></button>
-                          </form>
-                      </div>
+                      <?php echo do_shortcode( $settings['shortcode'] ); ?>
                   </div>
               </div>
           </div>
