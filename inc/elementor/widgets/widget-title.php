@@ -79,7 +79,7 @@ class sassbeyond_Widget_Title extends Widget_Base {
       $this->add_inline_editing_attributes( 'border', 'basic' );
       
       ?>
-      <div class="section-title text-center border-none mb-85">
+      <div class="section-title text-center border-none mb-75">
         <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h2>
         <p <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></p>
       </div>
