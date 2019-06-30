@@ -103,7 +103,7 @@ class sassbeyond_Widget_Features extends Widget_Base {
       $settings = $this->get_settings_for_display(); ?>
 
       <!-- features-area -->
-      <section class="features-area pb-170 p-relative">
+      <section class="features-area p-relative">
           <div class="container">
               <div class="row justify-content-center">
                   <div class="col-lg-10">
