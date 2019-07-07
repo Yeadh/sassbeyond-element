@@ -1,15 +1,11 @@
 <?php 
 
 function sassbeyondSocialShare() {?>
-
-	<div class="social-share">
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>"><i class="fa fa-facebook"></i>Facebook</a></li>
-            <li class="list-inline-item"><a href="https://twitter.com/home?status=<?php the_permalink() ?>"><i class="fa fa-twitter"></i>Twitter</a></li>
-            <li class="list-inline-item"><a href="https://plus.google.com/share?url=<?php the_permalink() ?>"><i class="fa fa-google-plus"> Google</i></a></li>
-            <li class="list-inline-item"><a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink() ?>"><i class="fa fa-linkedin"></i>LinkedIn</a></li>
-        </ul>
-    </div>
-    
+    <ul>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://twitter.com/home?status=<?php the_permalink() ?>"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://plus.google.com/share?url=<?php the_permalink() ?>"><i class="fab fa-google-plus"> </i></a></li>
+        <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink() ?>"><i class="fab fa-linkedin"></i></a></li>
+    </ul>    
 	<?php
 }
