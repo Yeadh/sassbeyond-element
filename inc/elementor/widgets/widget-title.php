@@ -58,8 +58,7 @@ class sassbeyond_Widget_Title extends Widget_Base {
             'label_on' => __( 'On', 'sassbeyond' ),
             'label_off' => __( 'Off', 'sassbeyond' ),
             'return_value' => 'yes',
-            'default' => 'no',
-   
+            'default' => 'no',   
          ]
       );
       

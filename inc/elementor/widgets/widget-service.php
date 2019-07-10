@@ -56,6 +56,20 @@ class sassbeyond_Widget_Service extends Widget_Base {
             'default' => __('Lorem ipsum dummy text are used here so replace your app data, ipsum dummy text are used here so','sassbeyond'),
          ]
       );
+
+      $this->add_control(
+         'style',
+         [
+            'label' => __( 'Service Style', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'solid',
+            'options' => [
+               'center'  => __( 'Center Icon', 'sassbeyond' ),
+               'left' => __( 'Left Icon', 'sassbeyond' ),
+            ],
+         ]
+      );
+
       
       $this->end_controls_section();
    }
@@ -71,6 +85,8 @@ class sassbeyond_Widget_Service extends Widget_Base {
       $this->add_inline_editing_attributes( 'text', 'basic' );
       $this->add_inline_editing_attributes( 'style', 'basic' );
       ?>
+      <?php 
+      if ( $settings['style'] == 'center' ){ ?>
 
       <div class="s-inner-features text-center mb-50">
            <div class="ifeatures-icon mb-30">
@@ -81,6 +97,21 @@ class sassbeyond_Widget_Service extends Widget_Base {
                <p><?php echo esc_html($settings['text']); ?></p>
            </div>
        </div>
+
+      <?php } elseif( $settings['style'] == 'left' ) { ?>
+
+      <div class="s-single-features mb-30">
+           <div class="s-features-icon">
+               <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
+           </div>
+           <div class="features-content">
+               <h3><?php echo esc_html($settings['title']); ?></h3>
+               <p><?php echo esc_html($settings['text']); ?></p>
+           </div>
+       </div>
+
+      <?php } ?>
+      
 
       <?php
    }
