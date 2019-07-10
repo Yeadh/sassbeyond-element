@@ -28,12 +28,15 @@ class sassbeyond_Widget_Service extends Widget_Base {
             'type' => Controls_Manager::SECTION,
          ]
       );
+
       $this->add_control(
          'icon',
          [
             'label' => __( 'Icon', 'sassbeyond' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('flaticon-money','sassbeyond'),
+            'type' => \Elementor\Controls_Manager::MEDIA,
+            'default' => [
+               'url' => \Elementor\Utils::get_placeholder_image_src(),
+            ],
          ]     
       );
 
@@ -42,7 +45,7 @@ class sassbeyond_Widget_Service extends Widget_Base {
          [
             'label' => __( 'Title', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Design','sassbeyond'),
+            'default' => __('Awesome Design','sassbeyond'),
          ]
       );
       $this->add_control(
@@ -50,7 +53,7 @@ class sassbeyond_Widget_Service extends Widget_Base {
          [
             'label' => __( 'Text', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Lorem ipsum dummy text in print and website industry are usually use in these section','sassbeyond'),
+            'default' => __('Lorem ipsum dummy text are used here so replace your app data, ipsum dummy text are used here so','sassbeyond'),
          ]
       );
       
@@ -68,12 +71,16 @@ class sassbeyond_Widget_Service extends Widget_Base {
       $this->add_inline_editing_attributes( 'text', 'basic' );
       $this->add_inline_editing_attributes( 'style', 'basic' );
       ?>
- 
-      <div class="service-item-2">
-         <i class="<?php echo esc_attr($settings['icon']); ?>"></i>
-         <h5><?php echo esc_html($settings['title']); ?></h5>
-         <p><?php echo esc_html($settings['text']); ?></p>
-      </div>
+
+      <div class="s-inner-features text-center mb-50">
+           <div class="ifeatures-icon mb-30">
+               <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
+           </div>
+           <div class="ifeatures-content">
+               <h4><?php echo esc_html($settings['title']); ?></h4>
+               <p><?php echo esc_html($settings['text']); ?></p>
+           </div>
+       </div>
 
       <?php
    }
