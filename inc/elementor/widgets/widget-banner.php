@@ -32,6 +32,21 @@ class sassbeyond_Widget_Banner extends Widget_Base {
          ]
       );
 
+
+      $this->add_control(
+         'style',
+         [
+            'label' => __( 'Banner Style', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'style1',
+            'options' => [
+               'style1' => __( 'Style 1', 'sassbeyond' ),
+               'style2' => __( 'Style 2', 'sassbeyond' ),
+            ],
+         ]
+      );
+
+
       $this->add_control(
       'banner_image',
         [
@@ -61,12 +76,12 @@ class sassbeyond_Widget_Banner extends Widget_Base {
          ]
       );
 
-
       $this->add_control(
          'btn_text', [
             'label' => __( 'Text', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('DOWNLOAD','sassbeyond')
+            'default' => __('DOWNLOAD','sassbeyond'),
+            'condition' => ['style' => 'style1']
          ]
       );
 
@@ -75,6 +90,7 @@ class sassbeyond_Widget_Banner extends Widget_Base {
             'label' => __( 'URL', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
             'default' => '#',
+            'condition' => ['style' => 'style1']
          ]
       );
 
