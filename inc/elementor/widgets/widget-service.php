@@ -62,7 +62,7 @@ class sassbeyond_Widget_Service extends Widget_Base {
          [
             'label' => __( 'Service Style', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 'solid',
+            'default' => 'center',
             'options' => [
                'center'  => __( 'Center Icon', 'sassbeyond' ),
                'left' => __( 'Left Icon', 'sassbeyond' ),
