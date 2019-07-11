@@ -139,10 +139,9 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
       $this->add_control(
          'screenshot',
          [
-            'label' => __( 'Button', 'sassbeyond' ),
+            'label' => __( 'Screenshot', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::REPEATER,
-            'fields' => $screenshot->get_controls(),
-            'title_field' => '{{{ screenshot_title }}}',
+            'fields' => $screenshot->get_controls()
          ]
       );
 
@@ -186,7 +185,7 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
                       <div class="screenshot-active text-right">
                         <?php foreach (  $settings['screenshot'] as $index => $image ) { ?>
                           <div class="single-screenshot">
-                              <img src="<?php echo $feature['image'][url] ?>" alt="img">
+                              <img src="<?php echo $image['screenshot'][url] ?>" alt="img">
                           </div>
                         <?php } ?>
                       </div>
