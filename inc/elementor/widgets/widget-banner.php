@@ -154,7 +154,7 @@ class sassbeyond_Widget_Banner extends Widget_Base {
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                         <div class="s-banner-app p-relative">
                             <img src="<?php echo $settings['app_mockup'][url] ?>" alt="img">
-                            <img src="<?php echo get_template_directory_uri() ?>/images/banner_app_shape.png" class="b-app-shape wow zoomIn" data-wow-delay="1s" alt="img">
+                            <img src="<?php echo get_template_directory_uri() ?>/img/images/banner_app_shape.png" class="b-app-shape wow zoomIn" data-wow-delay="1s" alt="img">
                             <div class="circle-animation">
                                 <div class="slider-pulse"></div>
                                 <div class="circle" style="animation-delay: -2s"></div>
