@@ -33,6 +33,30 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
       );
 
       $this->add_control(
+      'bg_color_1',
+        [
+          'label' => __( 'Gradient Color 1', 'sassbeyond' ),
+          'type' => \Elementor\Controls_Manager::COLOR,
+          'scheme' => [
+            'type' => \Elementor\Scheme_Color::get_type(),
+            'value' => \Elementor\Scheme_Color::COLOR_1,
+          ]
+        ]
+      );
+
+      $this->add_control(
+      'bg_color_2',
+        [
+          'label' => __( 'Gradient Color 2', 'sassbeyond' ),
+          'type' => \Elementor\Controls_Manager::COLOR,
+          'scheme' => [
+            'type' => \Elementor\Scheme_Color::get_type(),
+            'value' => \Elementor\Scheme_Color::COLOR_1,
+          ]
+        ]
+      );
+
+      $this->add_control(
       'mockup_image',
         [
           'label' => __( 'Mockup image', 'sassbeyond' ),
@@ -112,7 +136,7 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
       $settings = $this->get_settings_for_display(); ?>
 
       <!-- exclusive-features -->
-      <section class="exclusive-features p-relative pb-145 pt-180">
+      <section class="exclusive-features p-relative pb-145 pt-180" style="background-image: -webkit-linear-gradient( right, <?php echo $settings['bg_color_1'] ?> 0%, <?php echo $settings['bg_color_2'] ?> 100%);">
           <div class="container">
               <div class="row">
                   <div class="col-lg-8">
