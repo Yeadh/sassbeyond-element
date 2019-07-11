@@ -139,7 +139,7 @@ class sassbeyond_Widget_Banner extends Widget_Base {
         <!-- banner-area-end -->
       <?php elseif( $settings['style'] == 'style2' ){ ?>
         <!-- banner-area -->
-        <section class="banner-area s-banner-bg d-flex align-items-center p-relative" data-background="img/bg/banner_bg02.png">
+        <section class="banner-area s-banner-bg d-flex align-items-center p-relative" data-background="<?php echo $settings['banner_image'][url] ?>">
             <div id="particles-js"></div>
             <div class="container">
                 <div class="row align-items-center justify-content-between">
@@ -153,8 +153,8 @@ class sassbeyond_Widget_Banner extends Widget_Base {
                     </div>
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                         <div class="s-banner-app p-relative">
-                            <img src="img/apps/banner_app02.png" alt="img">
-                            <img src="img/images/banner_app_shape.png" class="b-app-shape wow zoomIn" data-wow-delay="1s" alt="img">
+                            <img src="<?php echo $settings['app_mockup'][url] ?>" alt="img">
+                            <img src="<?php echo get_template_directory_uri() ?>/images/banner_app_shape.png" class="b-app-shape wow zoomIn" data-wow-delay="1s" alt="img">
                             <div class="circle-animation">
                                 <div class="slider-pulse"></div>
                                 <div class="circle" style="animation-delay: -2s"></div>
