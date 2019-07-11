@@ -137,7 +137,7 @@ class sassbeyond_Widget_Banner extends Widget_Base {
             </div>
         </section>
         <!-- banner-area-end -->
-      <?php elseif( $settings['style'] == 'style2' ){ ?>
+      <?php } elseif( $settings['style'] == 'style2' ){ ?>
         <!-- banner-area -->
         <section class="banner-area s-banner-bg d-flex align-items-center p-relative" data-background="<?php echo $settings['banner_image'][url] ?>">
             <div id="particles-js"></div>
