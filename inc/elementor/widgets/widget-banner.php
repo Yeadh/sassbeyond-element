@@ -115,27 +115,61 @@ class sassbeyond_Widget_Banner extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-      <!-- banner-area -->
-      <section class="banner-area banner-bg d-flex align-items-center p-relative" data-background="<?php echo $settings['banner_image'][url] ?>">
-          <div id="particles-js"></div>
-          <div class="container">
-              <div class="row align-items-center justify-content-between">
-                  <div class="col-lg-6">
-                      <div class="banner-content">
-                          <h2 class="wow fadeInUp" data-wow-delay="0.2s"><?php echo esc_html($settings['title']); ?></h2>
-                          <p class="wow fadeInUp" data-wow-delay="0.4s"><?php echo esc_html($settings['description']); ?></p>
-                          <a href="<?php echo esc_url($settings['btn_url']); ?>" class="banner-btn wow fadeInUp" data-wow-delay="0.6s"><?php echo esc_html($settings['btn_text']); ?> <i class="arrow_down"></i></a>
-                      </div>
-                  </div>
-                  <div class="col-xl-5 col-lg-6 d-none d-lg-block">
-                      <div class="banner-app wow fadeInRight" data-wow-delay="0.4s">
-                          <img src="<?php echo $settings['app_mockup'][url] ?>" alt="img">
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <!-- banner-area-end -->
+      <?php if ( $settings['style'] == 'style1' ){ ?>
+        <!-- banner-area -->
+        <section class="banner-area banner-bg d-flex align-items-center p-relative" data-background="<?php echo $settings['banner_image'][url] ?>">
+            <div id="particles-js"></div>
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-6">
+                        <div class="banner-content">
+                            <h2 class="wow fadeInUp" data-wow-delay="0.2s"><?php echo esc_html($settings['title']); ?></h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.4s"><?php echo esc_html($settings['description']); ?></p>
+                            <a href="<?php echo esc_url($settings['btn_url']); ?>" class="banner-btn wow fadeInUp" data-wow-delay="0.6s"><?php echo esc_html($settings['btn_text']); ?> <i class="arrow_down"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6 d-none d-lg-block">
+                        <div class="banner-app wow fadeInRight" data-wow-delay="0.4s">
+                            <img src="<?php echo $settings['app_mockup'][url] ?>" alt="img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- banner-area-end -->
+      <?php elseif( $settings['style'] == 'style2' ){ ?>
+        <!-- banner-area -->
+        <section class="banner-area s-banner-bg d-flex align-items-center p-relative" data-background="img/bg/banner_bg02.png">
+            <div id="particles-js"></div>
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="banner-content s-banner-content">
+                            <h2 class="wow fadeInUp" data-wow-delay="0.2s"><?php echo $settings['title']; ?></h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.4s"><?php echo $settings['description']; ?></p>
+                            <a href="#" class="btn wow fadeInLeft" data-wow-delay="0.6s">Buy Now</a>
+                            <a href="#" class="btn wow fadeInRight" data-wow-delay="0.6s">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6 d-none d-lg-block">
+                        <div class="s-banner-app p-relative">
+                            <img src="img/apps/banner_app02.png" alt="img">
+                            <img src="img/images/banner_app_shape.png" class="b-app-shape wow zoomIn" data-wow-delay="1s" alt="img">
+                            <div class="circle-animation">
+                                <div class="slider-pulse"></div>
+                                <div class="circle" style="animation-delay: -2s"></div>
+                                <div class="circle" style="animation-delay: -1s"></div>
+                                <div class="circle" style="animation-delay: 0s"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- banner-area-end -->
+      <?php } ?>
+
+      
       <?php
    }
  
