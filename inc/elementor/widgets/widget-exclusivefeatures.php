@@ -127,7 +127,7 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
       $screenshot = new \Elementor\Repeater();
 
       $screenshot->add_control(
-         'screenshot', [
+         'shot', [
             'label' => __( 'Screenshot', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::MEDIA,
             'default' => [
@@ -170,7 +170,7 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
                         <div class="col-md-6">
                             <div class="single-efeatures mb-60">
                                 <div class="ef-icon mb-30">
-                                    <img src="<?php echo $feature['feature_icon'][url] ?>" alt="icon">
+                                    <img src="<?php echo $feature['feature_icon']['url'] ?>" alt="icon">
                                 </div>
                                 <div class="ef-content">
                                     <h5><?php echo esc_html($feature['feature_title']) ?></h5>
@@ -183,9 +183,9 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
                   </div>
                   <div class="col-lg-4 col-md-6">
                       <div class="screenshot-active text-right">
-                        <?php foreach (  $settings['screenshot'] as $index => $image ) { ?>
+                        <?php foreach (  $settings['screenshot'] as $index => $screenimage ) { ?>
                           <div class="single-screenshot">
-                              <img src="<?php echo $image['screenshot'][url] ?>" alt="img">
+                              <img src="<?php echo $screenimage['shot']['url'] ?>" alt="img">
                           </div>
                         <?php } ?>
                       </div>
