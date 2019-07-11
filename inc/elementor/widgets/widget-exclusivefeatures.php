@@ -124,6 +124,28 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
          ]
       );
 
+      $screenshot = new \Elementor\Repeater();
+
+      $screenshot->add_control(
+         'screenshot', [
+            'label' => __( 'Screenshot', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::MEDIA,
+            'default' => [
+              'url' => \Elementor\Utils::get_placeholder_image_src(),
+            ],
+         ]
+      );
+
+      $this->add_control(
+         'screenshot',
+         [
+            'label' => __( 'Button', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::REPEATER,
+            'fields' => $screenshot->get_controls(),
+            'title_field' => '{{{ screenshot_title }}}',
+         ]
+      );
+
       
       $this->end_controls_section();
 
@@ -162,18 +184,17 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
                   </div>
                   <div class="col-lg-4 col-md-6">
                       <div class="screenshot-active text-right">
+                        <?php foreach (  $settings['screenshot'] as $index => $image ) { ?>
                           <div class="single-screenshot">
-                              <img src="<?php echo $settings['mockup_image'][url] ?>" alt="img">
+                              <img src="<?php echo $feature['image'][url] ?>" alt="img">
                           </div>
-                          <div class="single-screenshot">
-                              <img src="img/images/app_slider01.png" alt="img">
-                          </div>
+                        <?php } ?>
                       </div>
                   </div>
               </div>
           </div>
           <div class="e-features-shape">
-              <img src="<?php echo get_template_directory_uri() ?>/img/images/screenshot_circle.png">
+              <img src="<?php echo get_template_directory_uri() ?>/img/images/screenshot_circle.png">           
           </div>
       </section>
       <!-- exclusive-features-end -->
