@@ -27,7 +27,7 @@ class sassbeyond_Widget_Banner extends Widget_Base {
       $this->start_controls_section(
          'banner_section',
          [
-            'label' => esc_html__( 'Banner 1', 'sassbeyond' ),
+            'label' => esc_html__( 'Banner', 'sassbeyond' ),
             'type' => Controls_Manager::SECTION,
          ]
       );
@@ -117,7 +117,7 @@ class sassbeyond_Widget_Banner extends Widget_Base {
 
       <?php if ( $settings['style'] == 'style1' ){ ?>
         <!-- banner-area -->
-        <section class="banner-area banner-bg d-flex align-items-center p-relative" data-background="<?php echo $settings['banner_image'][url] ?>">
+        <section class="banner-area banner-bg d-flex align-items-center p-relative" data-background="<?php echo $settings['banner_image']['url'] ?>">
             <div id="particles-js"></div>
             <div class="container">
                 <div class="row align-items-center justify-content-between">
@@ -130,7 +130,7 @@ class sassbeyond_Widget_Banner extends Widget_Base {
                     </div>
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                         <div class="banner-app wow fadeInRight" data-wow-delay="0.4s">
-                            <img src="<?php echo $settings['app_mockup'][url] ?>" alt="img">
+                            <img src="<?php echo $settings['app_mockup']['url'] ?>" alt="img">
                         </div>
                     </div>
                 </div>

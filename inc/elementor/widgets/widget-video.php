@@ -66,7 +66,7 @@ class sassbeyond_Widget_video extends Widget_Base {
               <div class="row justify-content-center">
                   <div class="col-lg-10">
                       <div class="video-wrap p-relative">
-                          <img src="<?php echo esc_url($settings['background'][url]); ?>" alt="img">
+                          <img src="<?php echo esc_url($settings['background']['url']); ?>" alt="img">
                           <a href="<?php echo esc_url($settings['url']); ?>" class="popup-video"><i class="fas fa-play"></i></a>
                       </div>
                   </div>

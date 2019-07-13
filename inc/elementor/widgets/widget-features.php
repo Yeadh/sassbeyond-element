@@ -91,6 +91,23 @@ class sassbeyond_Widget_Features extends Widget_Base {
          ]
       );
 
+      $this->add_control(
+         'button_text', [
+            'label' => __( 'Button Text', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __('View all features','sassbeyond')
+         ]
+      );
+
+      $this->add_control(
+         'button_url', [
+            'label' => __( 'Button URL', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '#'
+         ]
+      );
+      
+
       
       $this->end_controls_section();
 
@@ -117,7 +134,7 @@ class sassbeyond_Widget_Features extends Widget_Base {
                   <div class="col-lg-6">
                       <div class="single-features fix mb-30">
                           <div class="features-icon">
-                              <img src="<?php echo $feature['feature_icon'][url] ?>" alt="icon">
+                              <img src="<?php echo $feature['feature_icon']['url'] ?>" alt="icon">
                           </div>
                           <div class="features-content">
                               <h3><?php echo esc_html($feature['feature_title']) ?></h3>
@@ -130,12 +147,12 @@ class sassbeyond_Widget_Features extends Widget_Base {
               <div class="row">
                   <div class="col-12">
                       <div class="features-btn text-center mt-70">
-                          <a href="#" class="btn">View all features</a>
+                          <a href="<?php echo esc_url( $settings['button_url'] ); ?>" class="btn"><?php echo esc_html( $settings['button_text'] ); ?></a>
                       </div>
                   </div>
               </div>
           </div>
-          <div class="features-apps"><img src="<?php echo $settings['mockup_image'][url] ?>" alt="img" class="alltuchtopdown"></div>
+          <div class="features-apps"><img src="<?php echo $settings['mockup_image']['url'] ?>" alt="img" class="alltuchtopdown"></div>
       </section>
       <!-- features-area-end -->
       <?php

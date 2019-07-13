@@ -89,7 +89,7 @@ class sassbeyond_Widget_Feature extends Widget_Base {
 
       <div class="single-business-process">
           <div class="bp-icon mb-70">
-              <img src="<?php echo esc_url($settings['feature_icon'][url]); ?>" alt="icon">
+              <img src="<?php echo esc_url($settings['feature_icon']['url']); ?>" alt="icon">
           </div>
           <div class="bp-content">
               <h2><?php echo $settings['title']; ?></h2>
