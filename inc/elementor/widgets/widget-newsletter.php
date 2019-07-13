@@ -98,7 +98,7 @@ class sassbeyond_Widget_newsletter extends Widget_Base {
           <span class="moveshape-three"></span>
           <span class="moveshape-four"></span>
           <span class="moveshape-five"></span>
-          <div class="newsletter-app wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s"><img src="<?php echo esc_url($settings['background'][url]); ?>" alt="img" class="alltuchtopdown"></div>
+          <div class="newsletter-app wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s"><img src="<?php echo esc_url($settings['background']['url']); ?>" alt="img" class="alltuchtopdown"></div>
       </section>
       <!-- newsletter-area-end -->
    

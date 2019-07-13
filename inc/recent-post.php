@@ -57,14 +57,16 @@ if( !class_exists('sassbeyond_Recent_Post') ){
 
 				?>
 
-                <ul class="recent-posts">
+                <ul class="widget__post">
                <?php while($posts->have_posts()) : $posts->the_post();  ?>
 	               	<li>
-	               		<a href="<?php the_permalink(); ?>">
-	                        <?php the_post_thumbnail( 'sassbeyond-65-70' ); ?>
-	                        <span><?php echo get_the_date( 'd M Y' ) ?></span><br>
-	                        <p><?php the_title() ?></p>
-	                	</a>
+	               		<div class="widget__post-thumb">
+	               			<?php the_post_thumbnail( 'sassbeyond-80-60' ); ?>
+	               		</div>
+	               		<div class="widget__post-content">
+                            <h6><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h6>
+                            <span><i class="far fa-clock"></i><?php echo get_the_date( 'd M Y' ) ?></span>
+                        </div>
 	                </li>
 				<?php endwhile; ?>
                 </ul><!-- end latest-tweet -->
