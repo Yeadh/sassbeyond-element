@@ -77,7 +77,7 @@ class sassbeyond_Widget_newsletter extends Widget_Base {
       $settings = $this->get_settings_for_display(); ?>
 
       <!-- newsletter-area -->
-      <section class="newsletter-area newsletter-bg" data-background="<?php echo get_template_directory_uri() ?>/img/bg/newsletter_bg.png">
+      <section class="newsletter-area <?php if (is_front_page()){echo 'newsletter-bg';}else{echo 's-newsletter-bg';} ?>" data-background="<?php echo get_template_directory_uri() ?>/img/bg/newsletter_bg.png">
           <div class="container">
               <div class="row justify-content-center">
                   <div class="col-xl-8 col-lg-10">
