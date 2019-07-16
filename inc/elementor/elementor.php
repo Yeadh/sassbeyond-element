@@ -51,6 +51,7 @@ class sassbeyond_ElementorCustomElement {
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-accordion.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-contact.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-counter.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-partner.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-service.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-feature.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-features.php');

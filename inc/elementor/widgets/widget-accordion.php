@@ -38,15 +38,13 @@ class sassbeyond_Widget_Accordion extends Widget_Base {
       $accordion->add_control(
          'title', [
             'label' => __( 'Title', 'sassbeyond' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'label_block' => true,
+            'type' => \Elementor\Controls_Manager::TEXT
          ]
       );
       $accordion->add_control(
          'text', [
             'label' => __( 'Text', 'sassbeyond' ),
-            'type' => \Elementor\Controls_Manager::WYSIWYG,
-            'label_block' => true,
+            'type' => \Elementor\Controls_Manager::TEXTAREA
          ]
       );
 
