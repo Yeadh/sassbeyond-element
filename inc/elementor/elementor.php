@@ -48,6 +48,7 @@ class sassbeyond_ElementorCustomElement {
     if(defined('ELEMENTOR_PATH') && class_exists('Elementor\Widget_Base')){
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-banner.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-title.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-accordion.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-contact.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-counter.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-service.php');
