@@ -96,15 +96,15 @@ class sassbeyond_Widget_Accordion extends Widget_Base {
             'fields' => $accordion->get_controls(),
             'default' => [
                [
-                  'title' => __( 'How can i get help by sassbeyond?', 'sassbeyond' ),
+                  'title' => __( 'Lorem ipsum dummy text used here?', 'sassbeyond' ),
                   'text' => __( 'Lorem ipsum dolor sit amet, vix an natum labitur eleifd, mel am laoreet menandri. Ei justo complectitur duo. Ei mundi solet utos soletu possit quo. Sea cu justo laudem.', 'sassbeyond' )
                ],
                [
-                  'title' => __( 'What about loan programs & after bank loan advantage?', 'sassbeyond' ),
+                  'title' => __( 'Why i should buy this Theme?', 'sassbeyond' ),
                   'text' => __( 'Lorem ipsum dolor sit amet, vix an natum labitur eleifd, mel am laoreet menandri. Ei justo complectitur duo. Ei mundi solet utos soletu possit quo. Sea cu justo laudem.', 'sassbeyond' )
                ],
                [
-                  'title' => __( 'How can i opent new account?', 'sassbeyond' ),
+                  'title' => __( 'Can i change any elements easilly?', 'sassbeyond' ),
                   'text' => __( 'Lorem ipsum dolor sit amet, vix an natum labitur eleifd, mel am laoreet menandri. Ei justo complectitur duo. Ei mundi solet utos soletu possit quo. Sea cu justo laudem.', 'sassbeyond' )
                ]
             ],
@@ -123,6 +123,37 @@ class sassbeyond_Widget_Accordion extends Widget_Base {
       $randID = wp_rand();
 
       $settings = $this->get_settings_for_display(); ?>
+
+      <!-- faq-area -->
+      <div class="faq-wrapper">
+          <div class="accordion" id="accordionExample<?php echo $randID ?>">
+              <?php if ( $settings['accordion_list'] ) {
+                foreach (  $settings['accordion_list'] as $key => $accordion ) { ?>
+
+              <div class="card">
+                  <div class="card-header" id="headingFive">
+                      <h5 class="mb-0">
+                          <a href="#" class="btn-link collapsed" data-toggle="collapse" data-target="#collapse<?php echo $key.$randID ?>"
+                              aria-expanded="false" aria-controls="collapse<?php echo $key.$randID ?>">
+                              <?php echo esc_html( $accordion['title'] ); ?>
+                          </a>
+                      </h5>
+                  </div>
+                  <div id="collapse<?php echo $key.$randID ?>" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample<?php echo $randID ?>">
+                      <div class="card-body">
+                          <?php echo esc_html( $accordion['text'] ); ?>
+                      </div>
+                  </div>
+              </div>
+              <?php } ?>
+
+          </div>
+      </div>
+      <!-- faq-area-end -->
+            
+            
+
+
       <div id="accordion<?php echo $randID ?>" class="sassbeyond-accordion <?php echo esc_attr( $settings['accordion_style'] ) ?>">
         <?php if ( $settings['accordion_list'] ) { 
           foreach (  $settings['accordion_list'] as $key => $accordion ) { ?>

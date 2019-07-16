@@ -31,6 +31,20 @@ class sassbeyond_Widget_Testimonials extends Widget_Base {
             'type' => Controls_Manager::SECTION,
          ]
       );
+
+
+      $this->add_control(
+         'style',
+         [
+            'label' => __( 'Style', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'style1',
+            'options' => [
+               'style1' => __( 'Style 1', 'sassbeyond' ),
+               'style2' => __( 'Style 2', 'sassbeyond' ),
+            ],
+         ]
+      );
       
       $this->add_control(
          'title',
@@ -38,6 +52,27 @@ class sassbeyond_Widget_Testimonials extends Widget_Base {
             'label' => __( 'Title', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
             'default' => __( 'Users love us', 'sassbeyond' )
+            
+         ]
+      );
+      
+      $this->add_control(
+         'sub_title',
+         [
+            'label' => __( 'Sub Title', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __( 'Lorem ipsum dummy text are used here so replace your app data', 'sassbeyond' ),
+            'condition' => ['style' => 'style1']
+            
+         ]
+      );
+      
+      $this->add_control(
+         'testi_image',
+         [
+            'label' => __( 'Image', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::MEDIA,
+            'condition' => ['style' => 'style1']
             
          ]
       );
@@ -50,7 +85,7 @@ class sassbeyond_Widget_Testimonials extends Widget_Base {
             'label' => __( 'Choose Photo', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::MEDIA,
             'default' => [
-               'url' => \Elementor\Utils::get_placeholder_image_src(),
+               'url' => \Elementor\Utils::get_placeholder_image_src()
             ],
          ]
       );
@@ -99,15 +134,45 @@ class sassbeyond_Widget_Testimonials extends Widget_Base {
  
       // get our input from the widget settings.
        
-      $settings = $this->get_settings_for_display();
+      $settings = $this->get_settings_for_display(); ?>
+
+      <?php if ( $settings['style'] == 'style1' ){ ?>
+
+      <!-- testimonial-area -->
+      <section class="testimonial-area s-testimonial-bg">
+          <div class="container">
+              <div class="row">
+                  <div class="col-xl-5 col-lg-6">
+                      <div class="testimonial-img">
+                          <img src="<?php echo esc_url( $settings['testi_image']['url'] ); ?>" alt="quote">
+                      </div>
+                  </div>
+                  <div class="col-xl-7 col-lg-6">
+                      <div class="section-title s-section-title white-title border-none mb-70">
+                          <h2><?php echo esc_html( $settings['title'] ); ?></h2>
+                          <p><?php echo esc_html( $settings['sub_title'] ); ?></p>
+                      </div>
+                      <div class="s-testimonial-active">
+                          <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
+                          <div class="s-single-testimonial">
+                              <div class="s-testi-content mb-40">
+                                  <p><?php echo esc_html($testimonial_single['testimonial']); ?></p>
+                              </div>
+                              <div class="s-testi-avatar">
+                                  <h5><?php echo esc_html($testimonial_single['name']); ?></h5>
+                                  <span><?php echo esc_html($testimonial_single['designation']); ?></span>
+                              </div>
+                          </div>
+                          <?php endforeach; ?>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- testimonial-area-end -->
       
-      //Inline Editing
-      $this->add_inline_editing_attributes( 'style', 'basic' );
-      $this->add_inline_editing_attributes( 'color', 'basic' );
-      $this->add_inline_editing_attributes( 'testimonial_list', 'basic' );
-      
-      ?>
-      
+      <?php } elseif( $settings['style'] == 'style2' ){ ?>
+
       <!-- testimonial-area -->
       <section class="testimonial-area">
           <div class="container">
@@ -144,6 +209,7 @@ class sassbeyond_Widget_Testimonials extends Widget_Base {
           </div>
       </section>
       <!-- testimonial-area-end -->
+      <?php } ?>
    <?php } 
  
 }
