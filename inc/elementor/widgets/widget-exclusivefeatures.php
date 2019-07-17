@@ -193,7 +193,7 @@ class sassbeyond_Widget_ExFeatures extends Widget_Base {
               </div>
           </div>
           <div class="e-features-shape">
-              <img src="<?php echo get_template_directory_uri() ?>/img/images/screenshot_circle.png">           
+              <img src="<?php echo get_template_directory_uri() ?>/img/screenshot_circle.png">           
           </div>
       </section>
       <!-- exclusive-features-end -->

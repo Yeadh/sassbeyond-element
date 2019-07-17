@@ -33,6 +33,19 @@ class sassbeyond_Widget_newsletter extends Widget_Base {
       );
 
       $this->add_control(
+         'style',
+         [
+            'label' => __( 'Layout Style', 'sassbeyond' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'style1',
+            'options' => [
+               'style1' => __( 'Style 1', 'sassbeyond' ),
+               'style2' => __( 'Style 2', 'sassbeyond' ),
+            ],
+         ]
+      );
+
+      $this->add_control(
          'title', [
             'label' => __( 'Title', 'sassbeyond' ),
             'type' => \Elementor\Controls_Manager::TEXT,
@@ -76,8 +89,10 @@ class sassbeyond_Widget_newsletter extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
+      <?php if ( $settings['style'] == 'style1' ){ ?>
+
       <!-- newsletter-area -->
-      <section class="newsletter-area <?php if (is_front_page()){echo 'newsletter-bg';}else{echo 's-newsletter-bg';} ?>" data-background="<?php echo get_template_directory_uri() ?>/img/bg/newsletter_bg.png">
+      <section class="newsletter-area <?php if (is_front_page()){echo 'newsletter-bg';}else{echo 's-newsletter-bg';} ?>" data-background="<?php echo get_template_directory_uri() ?>/img/newsletter_bg.png">
           <div class="container">
               <div class="row justify-content-center">
                   <div class="col-xl-8 col-lg-10">
@@ -89,7 +104,9 @@ class sassbeyond_Widget_newsletter extends Widget_Base {
               </div>
               <div class="row justify-content-center">
                   <div class="col-xl-8 col-lg-10">
+                    <div class="newsletter-form">  
                       <?php echo do_shortcode( $settings['shortcode'] ); ?>
+                    </div>
                   </div>
               </div>
           </div>
@@ -101,8 +118,36 @@ class sassbeyond_Widget_newsletter extends Widget_Base {
           <div class="newsletter-app wow slideInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s"><img src="<?php echo esc_url($settings['background']['url']); ?>" alt="img" class="alltuchtopdown"></div>
       </section>
       <!-- newsletter-area-end -->
-   
-      <?php }
+
+      <?php } elseif( $settings['style'] == 'style2' ){ ?>
+
+      <!-- newsletter-area -->
+      <section class="newsletter-area h-newsletter-bg">
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-xl-6 col-lg-8">
+                      <div class="section-title s-section-title white-title text-center border-none mb-75">
+                          <h2><?php echo esc_html($settings['title']); ?></h2>
+                          <p><?php echo esc_html($settings['desc']); ?></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row justify-content-center">
+                  <div class="col-xl-7 col-lg-10">
+                      <div class="s-newsletter-form">
+                          <?php echo do_shortcode( $settings['shortcode'] ); ?>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="sub-shape"><img src="<?php echo get_template_directory_uri() ?>/img/sub_img.png" alt="img"></div>
+          <div class="sub-shape s-sub-shape"><img src="<?php echo get_template_directory_uri() ?>/img/sub_img02.png" alt="img"></div>
+      </section>
+      <!-- newsletter-area-end -->
+
+    <?php } ?>
+
+<?php }
  
 }
 

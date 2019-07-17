@@ -72,12 +72,11 @@ class sassbeyond_Widget_Blog extends Widget_Base {
                            <a href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(),'sassbeyond-360-200'); ?>" alt="<?php the_title() ?>"></a>
 
                            <?php
-                           $a=array("red","green","blue","yellow");
 
                            $posttags = get_the_tags();
                            if ($posttags) {
                              foreach($posttags as $tag) {
-                               echo '<a href="' . get_tag_link($tag->term_id) . '" class="b-tag '.array_rand($a,4).'">' .$tag->name. '</a>'; 
+                               echo '<a href="' . get_tag_link($tag->term_id) . '" class="b-tag">' .$tag->name. '</a>'; 
                              }
                            }
                            ?>
