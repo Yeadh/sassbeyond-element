@@ -65,33 +65,29 @@ class sassbeyond_Widget_Blog extends Widget_Base {
                /* Start the Loop */
                while ( $blog->have_posts() ) : $blog->the_post();
                ?>
-               <!-- blog -->
-               <div class="col-lg-4 col-sm-6">
-                  <div class="blog-item">
-                     <div class="blog-item-img">
-                        <img src="<?php echo get_the_post_thumbnail_url( get_the_ID(),'sassbeyond-360-200'); ?>" alt="<?php the_title() ?>">
-                        <ul class="list-inline blog-item-meta-1">
-                           <li class="list-inline-item">
-                              <?php the_category( ',' ) ?>
-                           </li>
-                           <li class="list-inline-item">
-                              Comment <?php comments_number( 0, 1, '%' ); ?>
-                           </li>
-                        </ul>
-                     </div>
-                     
-                     <div class="blog-item-content">
-                        <a href="<?php the_permalink() ?>"><h4><?php echo wp_trim_words( get_the_title(), 8, '...' );?></h4></a>
-                        <ul class="list-inline blog-item-meta-2">
-                           <li class="list-inline-item">
-                              <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php echo get_avatar( get_the_author_meta( 'ID' ), 32 ); ?><?php the_author(); ?></a>
-                           </li>
-                           <li class="list-inline-item">
-                              <?php echo get_the_time('F j, Y') ?>
-                           </li>
-                        </ul>       
-                     </div>
-                  </div>
+
+               <div class="col-lg-4 col-md-6">
+                   <div class="single-blog mb-50">
+                       <div class="s-blog-thumb p-relative">
+                           <a href="<?php the_permalink() ?>"><img src="<?php echo get_the_post_thumbnail_url( get_the_ID(),'sassbeyond-360-200'); ?>" alt="<?php the_title() ?>"></a>
+
+                           <?php
+                           $a=array("red","green","blue","yellow");
+
+                           $posttags = get_the_tags();
+                           if ($posttags) {
+                             foreach($posttags as $tag) {
+                               echo '<a href="' . get_tag_link($tag->term_id) . '" class="b-tag '.array_rand($a,4).'">' .$tag->name. '</a>'; 
+                             }
+                           }
+                           ?>
+                       </div>
+                       <div class="s-blog-content">
+                           <span><?php echo get_the_time() ?></span>
+                           <h4><a href="#"><?php the_title() ?></a></h4>
+                           <a href="<?php the_permalink() ?>"><?php echo esc_html__( 'Read more', 'sassbeyond' ) ?> <i class="arrow_right"></i></a>
+                       </div>
+                   </div>
                </div>
                <?php 
                endwhile; 
