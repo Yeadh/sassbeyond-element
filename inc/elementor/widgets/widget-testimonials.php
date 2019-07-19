@@ -179,7 +179,7 @@ class sassbeyond_Widget_Testimonials extends Widget_Base {
               <div class="row justify-content-between">
                   <div class="col-xl-3 col-lg-4 d-none d-md-block">
                       <div class="testimonial-quote">
-                          <img src="<?php echo get_template_directory_uri() ?>/img/quote_icon2.png" alt="quote">
+                          <img src="<?php echo get_template_directory_uri() ?>/img/quote_icon.png" alt="quote">
                       </div>
                   </div>
                   <div class="col-xl-8 col-lg-8">
