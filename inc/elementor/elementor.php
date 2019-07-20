@@ -66,5 +66,5 @@ class sassbeyond_ElementorCustomElement {
 	}
 
 }
- 
+
 sassbeyond_ElementorCustomElement::get_instance()->init();

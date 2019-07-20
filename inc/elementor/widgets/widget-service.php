@@ -100,7 +100,7 @@ class sassbeyond_Widget_Service extends Widget_Base {
 
       <?php } elseif( $settings['style'] == 'left' ) { ?>
 
-      <div class="s-single-features mb-30">
+      <div class="s-single-features">
            <div class="s-features-icon">
                <?php echo wp_get_attachment_image( $settings['icon']['id'],'full'); ?>
            </div>
