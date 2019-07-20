@@ -32,7 +32,7 @@ class sassbeyond_Widget_Contact extends Widget_Base {
          'icon',
          [
             'label' => __( 'Icon', 'sassbeyond' ),
-            'type' => \Elementor\Controls_Manager::TEXT
+            'type' => \Elementor\Controls_Manager::MEDIA
          ]     
       );
 
@@ -65,12 +65,16 @@ class sassbeyond_Widget_Contact extends Widget_Base {
       $this->add_inline_editing_attributes( 'title', 'basic' );
       $this->add_inline_editing_attributes( 'text', 'basic' );
       ?>
- 
-      <div class="contact-item">
-         <i class="<?php echo esc_attr($settings['icon']); ?>"></i>
-         <h5><?php echo esc_html($settings['title']); ?></h5>
-         <?php echo $settings['text'] ?>
-      </div>
+
+      <div class="single-contact-info mb-30 text-center">
+           <div class="contact-icon mb-30">
+               <img src="<?php echo esc_attr($settings['icon']['url']); ?>" alt="img">
+           </div>
+           <div class="contact-info-content">
+               <h4><?php echo esc_html($settings['title']); ?></h4>
+               <p><?php echo $settings['text'] ?></p>
+           </div>
+       </div>
 
       <?php
    }
